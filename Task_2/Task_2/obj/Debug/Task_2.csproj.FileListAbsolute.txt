@@ -1,0 +1,7 @@
+D:\Reprosit\Lesson_02\Task_2\Task_2\bin\Debug\Task_2.exe.config
+D:\Reprosit\Lesson_02\Task_2\Task_2\bin\Debug\Task_2.exe
+D:\Reprosit\Lesson_02\Task_2\Task_2\bin\Debug\Task_2.pdb
+D:\Reprosit\Lesson_02\Task_2\Task_2\obj\Debug\Task_2.csprojAssemblyReference.cache
+D:\Reprosit\Lesson_02\Task_2\Task_2\obj\Debug\Task_2.csproj.CoreCompileInputs.cache
+D:\Reprosit\Lesson_02\Task_2\Task_2\obj\Debug\Task_2.exe
+D:\Reprosit\Lesson_02\Task_2\Task_2\obj\Debug\Task_2.pdb
