@@ -12,12 +12,21 @@ namespace Task_1
         {
             Console.WriteLine("Enter your check amount");
             int m = Convert.ToInt32(Console.ReadLine());
-            byte z;
-            if (m >= 500) z = 5;
-            else if (m >= 400) z = 3;
-            else if (m >= 300) z = 2;
-            else z = 0;
-            Console.WriteLine($"Your discound is {z}%, total to pay {m-(m*z/100)}");
+            byte z = 0;
+            if (m >= 500)
+            {
+                z = 5;
+            }
+            else if (m >= 400)
+            {
+                z = 3;
+            }
+            else if (m >= 300)
+            {
+                z = 2;
+            }
+            
+            Console.WriteLine("Your discound is" +z+"%, total to pay "+(m-(m*z/100)));
             Console.ReadKey();
         }
     }
