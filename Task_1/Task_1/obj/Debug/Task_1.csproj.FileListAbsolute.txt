@@ -1,7 +1,0 @@
-D:\Reprosit\Lesson_02\Task_1\Task_1\bin\Debug\Task_1.exe.config
-D:\Reprosit\Lesson_02\Task_1\Task_1\bin\Debug\Task_1.exe
-D:\Reprosit\Lesson_02\Task_1\Task_1\bin\Debug\Task_1.pdb
-D:\Reprosit\Lesson_02\Task_1\Task_1\obj\Debug\Task_1.csprojAssemblyReference.cache
-D:\Reprosit\Lesson_02\Task_1\Task_1\obj\Debug\Task_1.csproj.CoreCompileInputs.cache
-D:\Reprosit\Lesson_02\Task_1\Task_1\obj\Debug\Task_1.exe
-D:\Reprosit\Lesson_02\Task_1\Task_1\obj\Debug\Task_1.pdb
