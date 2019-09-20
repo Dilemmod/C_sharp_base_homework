@@ -10,32 +10,20 @@ namespace Task_2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter how  much money do you have");
-            int m = Convert.ToInt32(Console.ReadLine());
-            string b = "";
-            if (m >= 80)
+            Random rand = new Random();
+            byte r = (byte)(rand.Next(0, 101)), n = 0, user =0;
+            for (byte i=0; i<5; i++)
             {
-                b = "leffe";
-                m -= 80;
+                n++;
+                Console.Write("Try #" + n + " Enter your number ");
+                user = Convert.ToByte(Console.ReadLine());
+                Console.WriteLine(user==r? "Congratulations! This is my number!":(user < r? "Wrong! My number is bigger!":"Wrong! My number is less!"));
+                if(user==r)
+                {
+                    break;
+                }
             }
-            else if (m >= 70)
-            {
-                b = "Hoegarsen";
-                m -= 70;
-            }
-            else if (m >= 60)
-            {
-                b = "Stella";
-                m -= 60;
-            }
-            else if (m >= 7)
-            {
-                b = "Obolon";
-                m -= 7;
-            }
-            else Console.WriteLine($"You can't buy any beer");
-
-            Console.WriteLine($"You can buy 1 {b}, the rest {m}");
+            Console.WriteLine(user != r ? "Your lose! My number is "+r:"");
             Console.ReadKey();
         }
     }
