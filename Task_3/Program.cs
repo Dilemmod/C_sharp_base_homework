@@ -47,13 +47,13 @@ namespace Task_3
                     //Вибух
                     if (i+1 == b)
                     {
-                        game[--b] = '_';
+                        game[--b] = '_';b = game.Length-1;
                         hp -= (five == 0 ? 40 : 20);
                     }
                     //Аптечка
                     else if (i+1 == m)
                     {
-                        game[--m] = '_';
+                        game[--m] = '_';m = game.Length - 1;
                         hp += (five == 0 ? 40 : 20);
                     }
                     i++;
@@ -71,13 +71,13 @@ namespace Task_3
                     //Вибух
                     if (i-1 == b)
                     {
-                        game[++b] = '_';
+                        game[++b] = '_';b = game.Length - 1;
                         hp -= (five == 0 ? 40 : 20);
                     }
                     //Аптечка
                     else if (i-1 == m)
                     {
-                        game[++m] = '_';
+                        game[++m] = '_';m = game.Length - 1;
                         hp += (five == 0 ? 40 : 20);
                     }
                     i--;
