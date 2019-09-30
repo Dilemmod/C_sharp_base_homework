@@ -10,22 +10,19 @@ namespace Task_1
     {
         static void Main(string[] args)
         {
-            int co=0;
             char[][] game = new char[10][];
             //Іниціалізація
             for (byte i = 0; i < game.Length; i++)
             {
                 game[i] = new char[10];
             }
-
-            byte ai = 0, aj = 0;
-            int hp = 100;
+            int hp = 100, ai = 0, aj = 0;
             ConsoleKeyInfo wasd;
             Random r = new Random();
-            for (byte i = 0; i < game.Length; i++)
+            for (int i = 0; i < game.Length; i++)
             {
                 int b = r.Next(0, game.Length - 1), m = r.Next(0, game.Length - 1);
-                for (byte j = 0; j < game[i].Length; j++)
+                for (int j = 0; j < game[i].Length; j++)
                 {
                     game[i][j] = '-';
                     game[ai][aj] = '@';
@@ -41,9 +38,9 @@ namespace Task_1
             }
             while (hp > 0)
             {
-                for (byte i = 0; i < game.Length; i++)
+                for (int i = 0; i < game.Length; i++)
                 {
-                    for (byte j = 0; j < game[i].Length; j++)
+                    for (int j = 0; j < game[i].Length; j++)
                     {
                         Console.Write(game[i][j] + " ");
                     }
@@ -79,13 +76,11 @@ namespace Task_1
                             {
                                 game[ai][aj] = '-';
                                 hp -= (five == 0 ? 40 : 20);
-                                co++;
                             }
                             else if (game[ai][aj + 1] == '#')
                             {
                                 game[ai][aj] = '-';
                                 hp += (five == 0 ? 40 : 20);
-                                co++;
                             }
                             else game[ai][aj] = game[ai][aj + 1];
                             game[ai][aj + 1] = temp;
