@@ -17,25 +17,30 @@ namespace Task_3
             string middle = (name.Substring(name.LastIndexOf(" ") + 1, 1).ToUpper()) + name.Substring(name.LastIndexOf(" ") + 2, (name.Length - name.LastIndexOf(" ") - 2));
             // Console.WriteLine(last+" "+first+" "+middle);
             //Console.WriteLine(name.IndexOf("tyr"));
-            string[][] mas = new string[3][];
+            string[][][] mas = new string[3][][];
             for (int i = 0; i < mas.Length; i++)
             {
-                mas[i] = new string[3];
-            }
-            for(int i=0;i<mas.Length;i++)
-            {
-                for(int j=0;j<mas[i].Length;j++)
+                mas[i] = new string[3][]
                 {
-                    mas[i][0] = last;
-                    mas[i][1] = first;
-                    mas[i][2] = middle;
-                    Console.Write(mas[i][j] + " ");
+                    new string[1] {last},
+                    new string[1] {first},
+                    new string[1] {middle}
+                };
+            }
+            for (int i = 0; i < mas.Length; i++)
+            {
+                for (int j = 0; j < mas[i].Length; j++)
+                {
+                    for (int l = 0; l < 1; l++) 
+                    {
+                        Console.Write(mas[i][j][l] + " ");
+                    }
                 }
                 Console.WriteLine();
             }
             Console.Write("Enter your search requery = ");
-            string search = Console.ReadLine();
-            if (name.IndexOf(search) != -1) 
+            //string search = Console.ReadLine();
+            if (name.IndexOf(Console.ReadLine()) != -1) 
             {
                 Console.WriteLine(last + " " + first + " " + middle);
             }

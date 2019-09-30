@@ -10,15 +10,16 @@ namespace Task_1
     {
         static void Main(string[] args)
         {
+            int hp = 100, ai = 0, aj = 0;
+            ConsoleKeyInfo wasd;
+            Random r = new Random();
             char[][] game = new char[10][];
             //Іниціалізація
             for (byte i = 0; i < game.Length; i++)
             {
                 game[i] = new char[10];
             }
-            int hp = 100, ai = 0, aj = 0;
-            ConsoleKeyInfo wasd;
-            Random r = new Random();
+            //Присвоєння
             for (int i = 0; i < game.Length; i++)
             {
                 int b = r.Next(0, game.Length - 1), m = r.Next(0, game.Length - 1);
@@ -36,6 +37,7 @@ namespace Task_1
                     game[i][m] = '#';
                 }
             }
+            //Цикл гри
             while (hp > 0)
             {
                 for (int i = 0; i < game.Length; i++)
@@ -46,148 +48,41 @@ namespace Task_1
                     }
                     Console.WriteLine();
                 }
+                hp = (hp > 100 ? 100:hp);
                 Console.WriteLine("Your health = " + (hp < 10 ? "00" : (hp < 100 ? "0" :""))+hp);
                 wasd = Console.ReadKey();
                 Console.SetCursorPosition(0, 0);
                 char temp = game[ai][aj];
-                int five = r.Next(0, 2);
+                int f = (r.Next(0, 2) == 0 ? 40 : 20);
                 switch (wasd.Key.ToString())
                 {
                     case "D":
-                        if (aj == game.Length - 1)
-                        {
-                            if (game[ai][0] == '*')
-                            {
-                                game[ai][aj] = '-';
-                                hp -= (five == 0 ? 40 : 20);
-                            }
-                            else if (game[ai][0] == '#')
-                            {
-                                game[ai][aj] = '-';
-                                hp += (five == 0 ? 40 : 20);
-                            }
-                            else game[ai][aj] = game[ai][0];
-                            game[ai][0] = temp;
-                            aj = 0;
-                        }
-                        else
-                        {
-                            if (game[ai][aj + 1] == '*')
-                            {
-                                game[ai][aj] = '-';
-                                hp -= (five == 0 ? 40 : 20);
-                            }
-                            else if (game[ai][aj + 1] == '#')
-                            {
-                                game[ai][aj] = '-';
-                                hp += (five == 0 ? 40 : 20);
-                            }
-                            else game[ai][aj] = game[ai][aj + 1];
-                            game[ai][aj + 1] = temp;
-                            aj++;
-                        }
+                        int d = (aj == game.Length - 1 ? 0 : aj + 1);
+                        hp = (game[ai][d] == '*' ? hp - f : (game[ai][d] == '#' ? hp + f : hp));
+                        game[ai][aj] = '-';
+                        game[ai][d] = temp;
+                        aj = d;
                         break;
                     case "A":
-                        if (aj == 0)
-                        {
-                            if (game[ai][game.Length - 1] == '*')
-                            {
-                                game[ai][aj] = '-';
-                                hp -= (five == 0 ? 40 : 20);
-                            }
-                            else if (game[ai][game.Length - 1] == '#')
-                            {
-                                game[ai][aj] = '-';
-                                hp += (five == 0 ? 40 : 20);
-                            }
-                            else game[ai][aj] = game[ai][game.Length - 1];
-                            game[ai][game.Length - 1] = temp;
-                            aj = Convert.ToByte(game.Length - 1);
-                        }
-                        else
-                        {
-                            if (game[ai][aj - 1] == '*')
-                            {
-                                game[ai][aj] = '-';
-                                hp -= (five == 0 ? 40 : 20);
-                            }
-                            else if (game[ai][aj - 1] == '#')
-                            {
-                                game[ai][aj] = '-';
-                                hp += (five == 0 ? 40 : 20);
-                            }
-                            else game[ai][aj] = game[ai][aj - 1];
-                            game[ai][aj - 1] = temp;
-                            aj--;
-                        }
+                        int a = (aj == 0 ? game.Length - 1 : aj - 1);
+                        hp = (game[ai][a] == '*' ? hp - f : (game[ai][a] == '#' ? hp + f : hp));
+                        game[ai][aj] = '-';
+                        game[ai][a] = temp;
+                        aj = a;
                         break;
                     case "S":
-                        if (ai == game.Length - 1)
-                        {
-                            if (game[0][aj] == '*')
-                            {
-                                game[ai][aj] = '-';
-                                hp -= (five == 0 ? 40 : 20);
-                            }
-                            else if (game[0][aj] == '#')
-                            {
-                                game[ai][aj] = '-';
-                                hp += (five == 0 ? 40 : 20);
-                            }
-                            else game[ai][aj] = game[0][aj];
-                            game[0][aj] = temp;
-                            ai = 0;
-                        }
-                        else
-                        {
-                            if (game[ai+1][aj] == '*')
-                            {
-                                game[ai][aj] = '-';
-                                hp -= (five == 0 ? 40 : 20);
-                            }
-                            else if (game[ai+1][aj] == '#')
-                            {
-                                game[ai][aj] = '-';
-                                hp += (five == 0 ? 40 : 20);
-                            }
-                            else game[ai][aj] = game[ai + 1][aj];
-                            game[ai + 1][aj] = temp;
-                            ai++;
-                        }
+                        int s = (ai == game.Length - 1 ? 0 : ai + 1);
+                        hp = (game[s][aj] == '*' ? hp - f : (game[s][aj] == '#' ? hp + f : hp));
+                        game[ai][aj] = '-';
+                        game[s][aj] = temp;
+                        ai = s;
                         break;
                     case "W":
-                        if (ai == 0)
-                        {
-                            if (game[game.Length - 1][aj] == '*')
-                            {
-                                game[ai][aj] = '-';
-                                hp -= (five == 0 ? 40 : 20);
-                            }
-                            else if (game[game.Length - 1][aj] == '#')
-                            {
-                                game[ai][aj] = '-';
-                                hp += (five == 0 ? 40 : 20);
-                            }
-                            else game[ai][aj] = game[game.Length - 1][aj];
-                            game[game.Length - 1][aj] = temp;
-                            ai = Convert.ToByte(game.Length - 1);
-                        }
-                        else
-                        {
-                            if (game[ai-1][aj] == '*')
-                            {
-                                game[ai][aj] = '-';
-                                hp -= (five == 0 ? 40 : 20);
-                            }
-                            else if (game[ai-1][aj] == '#')
-                            {
-                                game[ai][aj] = '-';
-                                hp += (five == 0 ? 40 : 20);
-                            }
-                            else game[ai][aj] = game[ai - 1][aj];
-                            game[ai - 1][aj] = temp;
-                            ai--;
-                        }
+                        int w = (ai == 0 ? game.Length - 1 : ai - 1);
+                        hp = (game[w][aj] == '*' ? hp - f : (game[w][aj] == '#' ? hp + f : hp));
+                        game[ai][aj] = '-';
+                        game[w][aj] = temp;
+                        ai = w;
                         break;
                     default:
                         continue;
@@ -197,10 +92,6 @@ namespace Task_1
                     break;
                 }
                 hp -= 5;
-                if (hp > 100)
-                {
-                    hp = 100;
-                }
             }
             Console.Clear();
             Console.WriteLine(ai == game.Length - 1 && aj == game.Length - 1 ? "You win!!!" : "You LOSE");
