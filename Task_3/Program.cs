@@ -22,16 +22,16 @@ namespace Task_3
             {
                 mas[i] = new string[3][]
                 {
-                    new string[1] {last},
-                    new string[1] {first},
-                    new string[1] {middle}
+                    new string[3] {last,last,last},
+                    new string[3] {first,first,first},
+                    new string[3] {middle,middle,middle}
                 };
             }
             for (int i = 0; i < mas.Length; i++)
             {
                 for (int j = 0; j < mas[i].Length; j++)
                 {
-                    for (int l = 0; l < 1; l++) 
+                    for (int l = 0; l < mas[j].Length; l++) 
                     {
                         Console.Write(mas[i][j][l] + " ");
                     }
