@@ -8,36 +8,45 @@ namespace Task_1
 {
     class Student
     {
-        public int tails;
-        public bool drunk = false;
-        public int iq;
-        public string name;
-        public string department;
-        public void nameDepartment()
+        private int tails;
+        private bool drunk;
+        private int iq;
+        private string name;
+        private string department;
+        
+        public void setNameDepartment()
         {
             Console.Write("Enter your name: ");
             name = Console.ReadLine();
             Console.Write("Enter your department: ");
             department = Console.ReadLine();
         }
-        public bool Expelled()
+        public void Expelled(bool drunk)
         {
             if (iq < 70 & drunk | drunk & tails > 3 | iq < 70 & tails > 3) 
             {
                 Console.WriteLine("Student EXPELLED");
-                return true;
             }
             else
             {
-                return false;
+                this.drunk = drunk;
+                iq += (drunk == false ? 10 : 0);
+                getInfo();
             }
+        }
+        // public bool setRandDrunk(bool i)
+        public void setRand(int tails,int iq,bool drunk)
+        {
+            this.tails = tails;
+            this.iq = iq;
+            this.drunk = drunk;
         }
 
         public void getInfo()
         {
-                Console.WriteLine("How much the student drunk: " + (drunk ? "Dead drunk" : "Sober"));
-                Console.WriteLine("IQ test scores: " + iq);
-                Console.WriteLine("How much student debt: " + tails); ;
+            Console.WriteLine("How much the student drunk: " + (drunk ? "Dead drunk" : "Sober"));
+            Console.WriteLine("IQ test scores: " + iq);
+            Console.WriteLine("How much student debt: " + tails); ;
         }
     }
     
@@ -46,21 +55,14 @@ namespace Task_1
         static void Main(string[] args)
         {
             Student stud = new Student();
-            Random r = new Random();
-            stud.nameDepartment();
-            stud.tails = r.Next(0, 6);
-            stud.iq = r.Next(0, 140);
-            int dr = r.Next(0, 2);
-            stud.drunk = (dr == 0 ? false : true);
+            Random rand = new Random();
+            int dr = rand.Next(0, 2);
+            stud.setNameDepartment();
+            stud.setRand(rand.Next(0, 6), rand.Next(0, 180), (dr == 0 ? false : true));
             stud.getInfo();
-            if (stud.Expelled()) {}
-            else
-            {
-                dr = r.Next(0, 2);
-                stud.drunk = (dr == 0 ? false : true);
-                stud.iq += (stud.drunk ? 0 : 10);
-                stud.getInfo();
-            }
+
+            dr = rand.Next(0, 2);
+            stud.Expelled((dr == 0 ? false : true));
 
             Console.ReadKey();
         }
