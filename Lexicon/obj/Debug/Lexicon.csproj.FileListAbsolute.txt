@@ -5,3 +5,10 @@ D:\Reprosit\Lexicon\Lexicon\obj\Debug\Lexicon.csprojAssemblyReference.cache
 D:\Reprosit\Lexicon\Lexicon\obj\Debug\Lexicon.csproj.CoreCompileInputs.cache
 D:\Reprosit\Lexicon\Lexicon\obj\Debug\Lexicon.exe
 D:\Reprosit\Lexicon\Lexicon\obj\Debug\Lexicon.pdb
+D:\Reprosit\C# Base Home work\Lexicon\bin\Debug\Lexicon.exe.config
+D:\Reprosit\C# Base Home work\Lexicon\bin\Debug\Lexicon.exe
+D:\Reprosit\C# Base Home work\Lexicon\bin\Debug\Lexicon.pdb
+D:\Reprosit\C# Base Home work\Lexicon\obj\Debug\Lexicon.csprojAssemblyReference.cache
+D:\Reprosit\C# Base Home work\Lexicon\obj\Debug\Lexicon.csproj.CoreCompileInputs.cache
+D:\Reprosit\C# Base Home work\Lexicon\obj\Debug\Lexicon.exe
+D:\Reprosit\C# Base Home work\Lexicon\obj\Debug\Lexicon.pdb

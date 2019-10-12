@@ -278,11 +278,10 @@ namespace Task_1
         }
         private bool bonus(int x)
         {
-            for (int i = 1, ch = 0; i < 12; i++)
+            for (int  y = 1, ch = 0; y < 12; y++)
             {
-                ch += (space[x][i] != ' ' ? 1 : 0);
-                Console.WriteLine("\t\t\tCh = " + ch);
-                if (ch == 9) return true;
+                ch += (space[x][y] != ' ' ? 1 : 0);
+                if (ch == 10 ) return true;
             }
             return false;
         }
@@ -293,8 +292,16 @@ namespace Task_1
             int score = 0;
             char[] figure = { 'x','i','l','z','t'};
             int primaryTime = 500;
-            int i = 0;
+            int temp = 0;
             //Пока не достигнут предел
+            Console.WriteLine("\t\t\t\tRULS OF THE GAME");
+            Console.WriteLine("\t\t\tThe goal of the game is to collect HORIZONTAL lines of symbols");
+            Console.WriteLine("\t\t\tTo speed up, press ONCE S");
+            Console.WriteLine("\t\t\tDo not hold down the keys, press once");
+            Console.WriteLine("\t\t\tWith each new figure, the game will accelerate");
+            Console.WriteLine("\t\t\tGood LUCK");
+            Console.ReadKey();
+            Console.SetCursorPosition(0, 0);
             while (space[2][5] == ' ')
             {
                 int indexFigure = rand.Next(0, figure.Length-1);
@@ -305,6 +312,7 @@ namespace Task_1
                     if (stop)
                     {
                         stop = false;
+                        temp = x;
                         break;
                     }
                     if (Console.KeyAvailable)
@@ -329,20 +337,22 @@ namespace Task_1
                         }
                         time = (navigation.Key == ConsoleKey.S?100:primaryTime);
                     }
+                    temp = x;
                     setFigure(figure[indexFigure], x, y, ConsoleKey.Enter);
                     getArrey();
                     Console.SetCursorPosition(0, 0);
                     Thread.Sleep(time); 
                 }
-                primaryTime -= (primaryTime == 150 ? 0 : 50);
-                Console.SetCursorPosition(0, 0);
-                if (bonus(x))
+                if(x!=2&& x != 3 && x != 4)
                 {
-                    Console.Write("\t\t\t\tYour score = " + (score += 100));
+                    Console.Write(bonus(temp) ? "\t\t\tYour SCORE = " + (score += 100) : "");
                 }
+                primaryTime -= (primaryTime == 150 ? 0 : 50);
             }
             Console.Clear();
-            Console.WriteLine("Your LOSE");
+            Console.WriteLine("GAME OWER");
+            Console.WriteLine("Your score = "+score);
+            Console.ReadLine();
         }
     }
     class Menu : Array
