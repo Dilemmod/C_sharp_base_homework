@@ -15,7 +15,7 @@ namespace Task_2
         {
             return colors[rand.Next(0, colors.Length)];
         }
-        public void getInfo(string style, double perimeter, double area)
+        public void setInfo(string style, double perimeter, double area)
         {
             Console.Write("Name: " + style + "; Color: " + getColor() + "; Perimeter: " + perimeter + "; Area: " + area);
         }     
@@ -26,7 +26,7 @@ namespace Task_2
         public Circle(double radius)
         {
             this.radius = radius;
-            getInfo("Cyrcle", 2 * PI * radius, PI * (radius *= radius));
+            setInfo("Cyrcle", 2 * PI * radius, PI * (radius *= radius));
         }
     }
     class Rectangle : Figure
@@ -35,7 +35,7 @@ namespace Task_2
         {
             this.width = width;
             this.height = height;
-            getInfo((width == height ? "Square" : "Rectangle"), 2 * (width + height), width * height / 2);
+            setInfo((width == height ? "Square" : "Rectangle"), 2 * (width + height), width * height / 2);
         }
     }
     class Triangle : Figure
@@ -46,7 +46,7 @@ namespace Task_2
             this.side2 = side2;
             this.side3 = side3;
             double p = 0.5 * (side1 + side2 + side3);
-            getInfo((side1 != side2 && side1 != side3 && side2 != side3 ? "Versatile" : (side1 == side2 && side1 == side3 && side2 == side3 ? "Equilateral" : "Isosceles")), side1 + side2 + side3, Math.Sqrt(p * (p - side1) * (p - side2) * (p - side3)));
+            setInfo((side1 != side2 && side1 != side3 && side2 != side3 ? "Versatile" : (side1 == side2 && side1 == side3 && side2 == side3 ? "Equilateral" : "Isosceles")), side1 + side2 + side3, Math.Sqrt(p * (p - side1) * (p - side2) * (p - side3)));
         }
     }
     class Program

@@ -8,31 +8,68 @@ namespace Task_1
 {
     class Product
     {
-        protected string name, color;
-        protected int price;
-        protected double weigth;
-        public Product(string name, int price, string color,double weigth)
+        string name;
+        double price;
+        Weigth weigthProduct;
+        Color colorProduct;
+        //Constructor for Product
+        public Product() {}
+        public Product(string n, double p, double w, string c)
         {
-            this.name = name;
-            this.price = price;
-            this.weigth = weigth;
-            this.color = color;
+            weigthProduct = new Weigth(w);
+            colorProduct = new Color(c);
+            name = n;
+            price = p;
+        }
+        public string getColor()
+        {
+            return colorProduct.getC();
+        }
+        public double getWeigth()
+        {
+            return weigthProduct.getW();
         }
         public string getName()
         {
             return name;
         }
-        public int getPrice()
+        public double getPrice()
         {
             return price;
         }
-        public string getColor()
+    }
+    class Weigth : Product
+    {
+        private double pr_weigth;
+        public Weigth(double w)
+        {
+            pr_weigth = w;
+        }
+        public double getW()
+        {
+            return weigth;
+        }
+        public double weigth
+        {
+            get { return pr_weigth; }
+            set { pr_weigth = value < 0 ? -value : value; }
+        }
+    }
+    class Color : Product
+    {
+        private string pr_color;
+        public Color(string c)
+        {
+            pr_color = c;
+        }
+        public string getC()
         {
             return color;
         }
-        public double getWeigth()
+        public string color
         {
-            return weigth;
+            get { return pr_color; }
+            set { pr_color = value.Length > 10 ? value.Substring(0, 9) : value; }
         }
     }
     class Cart
@@ -63,7 +100,7 @@ namespace Task_1
         public void showCart()
         {
             Console.WriteLine("CART:");
-            int total = 0;
+            double total = 0;
             for (int i = 0; i < products.Length; i++)
             {
                 if (products[i] != null)
@@ -79,13 +116,14 @@ namespace Task_1
     {
         static void Main(string[] args)
         {
-            Product p1 = new Product("Coca-Cola", 15, "Black",1.5);
-            Product p2 = new Product("Pepsi-Cola", 16,"Grey",1.5);
-            Product p3 = new Product("Milk", 26,"White", 1);
-            Product p4 = new Product("Bread", 12,"Brown",0.5);
-            Product p5 = new Product("Butter", 35,"Yellow",0.2);
+            Product p1 = new Product("Cola", 15.9,1.5,"Black");
+            Product p2 = new Product("Pepsi-Cola", 16,1.4,"Blue");
+            Product p3 = new Product("Milk", 26,1,"White");
+            Product p4 = new Product("Bread", 12.4,0.5,"Brown");
+            Product p5 = new Product("Butter", 35,0.3,"Yellow");
             Cart cart = new Cart();
             cart.addProduct(p1);
+            cart.addProduct(p2);
             cart.addProduct(p3);
             cart.addProduct(p4);
             cart.addProduct(p5);
